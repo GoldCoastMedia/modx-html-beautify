@@ -35,7 +35,6 @@ class HtmlBeautify {
 		'ignored_tags'       => 'pre, script, textarea',
 		'indent_output'      => TRUE,
 		'remove_comments'    => FALSE,
-		'remove_empty_lines' => FALSE,
 	);
 
 	public function __construct(modX &$modx, $config = array())
@@ -114,33 +113,26 @@ class HtmlBeautify {
 	 * @param   string  $source  source code
 	 * @return  string           processed source
 	 */
-	protected function _clean_whitespace($source = NULL, $remove_empty_lines = FALSE)
+	protected function _clean_whitespace($source = NULL)
 	{
-		// Clean new lines
-		if( (bool) $remove_empty_lines === TRUE) {
-			echo 'REMOVE DA EMPTY LINES!';
-			// replace \r\n with \n
-			$source = preg_replace('~\r\n~ms', "\n", $source);
-			// replace \r with \n
-			$source = preg_replace('~\r~ms', "\n", $source);
-			// removes empty lines
-			$source = preg_replace('~\n\s*(?=\n)~ms', '', $source);
-			// remove whitespace from the beginnig
-			$source = preg_replace('~^\s+~s', '', $source);
-			// remove whitespace from the end
-			$source = preg_replace('~\s+$~s', '', $source);
-			// remove whitespace from the end of each line
-			$source = preg_replace('~\s+$~m', '', $source);
-			// remove whitespace from the beginning of each line
-			$source = preg_replace('~^\s+~m', '', $source);	
-		}
-		else { 
-			// remove whitespace from the end of each line
-			$source = preg_replace('~\s+$~m', "", $source);
-			// remove whitespace from the beginning of each line
-			$source = preg_replace('~^\s+~m', "", $source);
-		}
-
+		// replace \r\n with \n
+		$source = preg_replace('~\r\n~ms', "\n", $source);
+		// replace \r with \n
+		$source = preg_replace('~\r~ms', "\n", $source);
+		// removes empty lines
+		$source = preg_replace('~\n\s*(?=\n)~ms', '', $source);
+		// remove whitespace from the beginnig
+		$source = preg_replace('~^\s+~s', '', $source);
+		// remove whitespace from the end
+		$source = preg_replace('~\s+$~s', '', $source);
+		// remove whitespace from the end of each line
+		$source = preg_replace('~\s+$~m', '', $source);
+		// remove whitespace from the beginning of each line
+		$source = preg_replace('~^\s+~m', '', $source);	
+		// remove whitespace from the end of each line
+		$source = preg_replace('~\s+$~m', "", $source);
+		// remove whitespace from the beginning of each line
+		$source = preg_replace('~^\s+~m', "", $source);
 		// removes whitespace between text
 		$source = preg_replace('~([^>\s])(\s+)([^<\s])~', '$1 $3', $source);
 		// remove tabs between tags
