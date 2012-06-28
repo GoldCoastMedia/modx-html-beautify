@@ -22,6 +22,7 @@
  *
  * @package  htmlbeautify
  * @author   Dan Gibbs <dan@goldcoastmedia.co.uk>
+ *           Till Krüss <http://tillkruess.com/projects/wordpress/wp-beautifier/>
  */
 
 if($modx->event->name == 'OnWebPagePrerender')
