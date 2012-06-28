@@ -21,7 +21,8 @@
  * Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * @package  htmlbeautify
- * @author   Dan Gibbs <dan@goldcoastmedia.co.uk>
+ * @author  Dan Gibbs <dan@goldcoastmedia.co.uk>
+ *          Till Krüss <http://tillkruess.com/projects/wordpress/wp-beautifier/>
  */
  
 class HtmlBeautify {
