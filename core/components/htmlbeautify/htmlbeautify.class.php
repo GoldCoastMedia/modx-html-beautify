@@ -60,10 +60,19 @@ class HtmlBeautify {
 	{
 		$resource = $this->_modx->resource;
 
-		// Only perform on HTML documents
+		/**
+		 * The MODx document must have a text/html content type
+		 * and must also have a valid HTML DTD before processing
+		 * the source code output/
+		 */
 		if($resource->get('contentType') === 'text/html') {
-			$output = $this->_clean_output($resource->_output, $this->config);
-			$resource->_content = $resource->_output = $output;
+			
+			$less = substr(trim($resource->_output), 0, 100);
+
+			if(stripos($less, '<!DOCTYPE html') !== FALSE) {
+				$output = $this->_clean_output($resource->_output, $this->config);
+				$resource->_content = $resource->_output = $output;
+			}
 		}
 	}
 
@@ -82,9 +91,11 @@ class HtmlBeautify {
 
 		$ignored_tags_regexp = '~';
 		$ignored_tags = explode(', ', $config['ignored_tags']);
+		
 		for ($i = 0, $size = count($ignored_tags); $i < $size; ++$i) {
 			$ignored_tags_regexp .= '<'.$ignored_tags[$i].'[^>]*>.*?<\/'.$ignored_tags[$i].'>' . ($i < $size - 1 ? '|' : '');
 		}
+
 		$ignored_tags_regexp .= '~s';
 
 		// store the original contents of all ignored tags
@@ -100,7 +111,7 @@ class HtmlBeautify {
 		}
 
 		preg_match_all($ignored_tags_regexp, $source, $modified_tags);
-		
+
 		foreach ($modified_tags[0] as $key => $match) {
 			$source = str_replace($match, $original_tags[0][$key], $source);
 		}
@@ -146,7 +157,7 @@ class HtmlBeautify {
 	 * Add line indentation to source
 	 *
 	 * @param   string  $source  source code
-	 * @param   int     $indent  level to start indentation at
+	 * @param   int     $indent  a positive level to start indentation at
 	 * @return  string           processed source
 	 */
 	protected function _add_indentation($source = NULL, $indent = 0)
@@ -178,7 +189,7 @@ class HtmlBeautify {
 	 * Convert single quoted attributes to double quotes
 	 *
 	 * @param   string  $source              source code
-	 * @param   array   $ignored_attributed  attributes to ignore
+	 * @param   array   $ignored_attributes  attributes to ignore
 	 * @return  string                       processed source
 	 */
 	protected function _convert_quotes($source = NULL, $ignored_attributes)
