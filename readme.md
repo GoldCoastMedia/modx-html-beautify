@@ -1,8 +1,8 @@
 XHTML Beautify for MODx Revolution
 =========================================
-*Authors: Dan Gibbs, Gold Coast Media Ltd
-          Till Krüss, http://tillkruess.com/projects/wordpress/wp-beautifier/
-*
+Authors:
+- Dan Gibbs, Gold Coast Media Ltd
+- Till Krüss, http://tillkruess.com/projects/wordpress/wp-beautifier/
 
 Configurable MODx plugin that cleans up XHTML source code output.
 
