@@ -59,13 +59,14 @@ class HtmlBeautify {
 	public function run()
 	{
 		$resource = $this->_modx->resource;
+		$content_type = $resource->get('contentType');
 
 		/**
 		 * The MODx document must have a text/html content type
 		 * and must also have a valid HTML DTD before processing
 		 * the source code output/
 		 */
-		if($resource->get('contentType') === 'text/html') {
+		if($content_type === 'text/html' OR $content_type === 'application/xhtml+xml') {
 			
 			$less = substr(trim($resource->_output), 0, 100);
 
