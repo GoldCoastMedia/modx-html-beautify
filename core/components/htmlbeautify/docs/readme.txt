@@ -1,10 +1,10 @@
 HTML Beautify
 =============
-Version: 1.0.0-beta (2012-06-24)
+Version: 1.0.0-beta (2012-07-16)
 Authors: Dan Gibbs <dan@goldcoastmedia.co.uk>
          Till Krüss <http://tillkruess.com/projects/wordpress/wp-beautifier/>
 
-Clean up (X)HTML source code output.
+Clean up XHTML source code output.
 
 * Strip unnecessary whitespace, new lines and trailing whitespace
 * Format (indent) the (X)HTML source code output
@@ -18,7 +18,6 @@ Git repo: https://github.com/GoldCoastMedia/modx-html-beautify
 Documentation
 -------------
 Full detailed documentation available at: 
-[[LINK HERE]]
+http://www.goldcoastmedia.co.uk/tools/modx-xhtml-beautify/
 
 Gold Coast Media
-

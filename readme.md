@@ -15,9 +15,9 @@ Configurable MODx plugin that cleans up XHTML source code output.
 
 Installation
 -----------
-Nothing to install yet, not done.
+Install via MODx package manager and change settings via Settings > System Settings.
 
 Documentation
 ------------
 Full detailed documentation available at:
-
+http://www.goldcoastmedia.co.uk/tools/modx-xhtml-beautify/

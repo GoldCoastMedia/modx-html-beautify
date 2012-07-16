@@ -93,7 +93,7 @@ class HtmlBeautify {
 		$ignored_tags = explode(', ', $config['ignored_tags']);
 		
 		for ($i = 0, $size = count($ignored_tags); $i < $size; ++$i) {
-			$ignored_tags_regexp .= '<'.$ignored_tags[$i].'[^>]*>.*?<\/'.$ignored_tags[$i].'>' . ($i < $size - 1 ? '|' : '');
+			$ignored_tags_regexp .= '<' . $ignored_tags[$i] . '[^>]*>.*?<\/' . $ignored_tags[$i] . '>' . ($i < $size - 1 ? '|' : '');
 		}
 
 		$ignored_tags_regexp .= '~s';

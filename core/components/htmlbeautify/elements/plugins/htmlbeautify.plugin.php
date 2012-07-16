@@ -31,6 +31,7 @@ if($modx->event->name == 'OnWebPagePrerender')
 	$htmlbeautify = new HtmlBeautify($modx);
 	$output = $htmlbeautify->run();
 	unset($htmlbeautify);
+	
 	return $output;
 }
 
