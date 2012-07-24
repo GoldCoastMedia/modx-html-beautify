@@ -25,7 +25,9 @@
  *           Till Krüss <http://tillkruess.com/projects/wordpress/wp-beautifier/>
  */
 
-if($modx->event->name == 'OnWebPagePrerender')
+$enabled = $modx->getOption('htmlbeautify.enabled');
+
+if($modx->event->name == 'OnWebPagePrerender' AND $enabled)
 {
 	require $modx->config['base_path'] . 'core/components/htmlbeautify/htmlbeautify.class.php';
 	$htmlbeautify = new HtmlBeautify($modx);

@@ -32,6 +32,10 @@ $_lang['setting_htmlbeautify.indent_output'] = 'Indent Output';
 $_lang['setting_htmlbeautify.indent_output_desc'] = 'Indent XHTML output and 
 remove unnecessary whitespace and trailing whitespace.';
 
+$_lang['setting_htmlbeautify.enabled'] = 'Enabled';
+$_lang['setting_htmlbeautify.enabled_desc'] = 'Enable/Disable the plugin from
+taking effect.';
+
 $_lang['setting_htmlbeautify.remove_empty_lines'] = 'Remove Empty Lines';
 $_lang['setting_htmlbeautify.remove_empty_lines_desc'] = 'Remove empty lines 
 from the source code.';

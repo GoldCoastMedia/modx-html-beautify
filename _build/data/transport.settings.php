@@ -43,6 +43,16 @@ $settings['setting_htmlbeautify.remove_comments']->fromArray(array (
     'area' => 'output-cleaning',
 ), '', true, true);
 
+$settings['setting_htmlbeautify.enabled']= $modx->newObject('modSystemSetting');
+$settings['setting_htmlbeautify.enabled']->fromArray(array (
+    'key' => 'htmlbeautify.enabled',
+    'description' => 'setting_htmlbeautify.enabled_desc',
+    'value' => 1,
+    'xtype' => 'combo-boolean',
+    'namespace' => 'htmlbeautify',
+    'area' => 'output-cleaning',
+), '', true, true);
+
 /* Ignore Settings */
 $settings['setting_htmlbeautify.ignored_attributes']= $modx->newObject('modSystemSetting');
 $settings['setting_htmlbeautify.ignored_attributes']->fromArray(array (
