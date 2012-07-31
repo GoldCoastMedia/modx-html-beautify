@@ -1,0 +1,15 @@
+Changelog for XHTML Beautify (MODx Revolution)
+
+1.0.2-beta
+===========
+- Package renamed to xhtmlbeautify
+- Fixed naming issues preventing automatic updates and general confusion
+
+1.0.1-beta1
+===========
+- Added system setting to enable/disable plugin from firing
+- Added 'enabled' check on plugin system event
+
+1.0.0-beta1
+===========
+- Initial release

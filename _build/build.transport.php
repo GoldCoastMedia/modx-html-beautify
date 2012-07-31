@@ -20,24 +20,24 @@
  * HTML Beautify; if not, write to the Free Software Foundation, Inc., 59 
  * Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * @package  htmlbeautify
- * @author  Dan Gibbs <dan@goldcoastmedia.co.uk>
+ * @package    xhtmlbeautify
+ * @author     Dan Gibbs <dan@goldcoastmedia.co.uk>
  * @subpackage build
  */
 /**
  * Build HTML Beautify Package
  *
  * Description: Build script for HTML Beautify package
- * @package htmlbeautify
+ * @package    xhtmlbeautify
  * @subpackage build
  */
 
 /* Set package info be sure to set all of these */
-define('PKG_NAME','HTML Beautify');
-define('PKG_NAME_LOWER','htmlbeautify');
-define('PKG_VERSION','1.0.1');
-define('PKG_RELEASE','beta1');
-define('PKG_CATEGORY','HTML Beautify');
+define('PKG_NAME','XHTML Beautify');
+define('PKG_NAME_LOWER','xhtmlbeautify');
+define('PKG_VERSION','1.0.2');
+define('PKG_RELEASE','beta');
+define('PKG_CATEGORY','XHTML Beautify');
 
 /* Set package options - you can turn these on one-by-one
  * as you create the transport package
@@ -100,7 +100,7 @@ $sources= array (
     'resolvers' => $root . '_build/resolvers/',
     'validators'=> $root . '_build/validators/',
     'data' => $root . '_build/data/',
-    'docs' => $root . 'core/components/htmlbeautify/docs/',
+    'docs' => $root . 'core/components/xhtmlbeautify/docs/',
     'install_options' => $root . '_build/install.options/',
     'packages'=> $root . 'core/packages',
 );

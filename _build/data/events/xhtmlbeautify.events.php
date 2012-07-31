@@ -2,7 +2,7 @@
 /**
  * Array of plugin events for HTML Beautify package
  *
- * @package htmlbeautify
+ * @package xhtmlbeautify
  * @subpackage build
  */
 $events = array();

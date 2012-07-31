@@ -1,6 +1,6 @@
-HTML Beautify
-=============
-Version: 1.0.1-beta (2012-07-24)
+XHTML Beautify
+==============
+Version: 1.0.2-beta (2012-07-31)
 Authors: Dan Gibbs <dan@goldcoastmedia.co.uk>
          Till Krüss <http://tillkruess.com/projects/wordpress/wp-beautifier/>
 

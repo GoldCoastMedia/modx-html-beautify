@@ -1,7 +1,7 @@
 <?php
 /**
- * Description: Resolver script for HTML Beautify package
- * @package htmlbeautify
+ * Description: Resolver script for XHTML Beautify package
+ * @package xhtmlbeautify
  * @subpackage build
  */
 
@@ -29,8 +29,8 @@ $modx =& $object->xpdo;
  */
 
 $pluginEvents = array('OnWebPagePrerender');
-$plugins = array('HTML Beautify');
-$category = 'HTML Beautify';
+$plugins = array('XHTML Beautify');
+$category = 'XHTML Beautify';
 
 $hasPlugins = TRUE;
 $hasTemplates = FALSE;
