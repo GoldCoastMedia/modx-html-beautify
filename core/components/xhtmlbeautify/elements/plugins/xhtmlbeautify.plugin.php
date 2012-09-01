@@ -29,7 +29,7 @@ $enabled = $modx->getOption('xhtmlbeautify.enabled');
 
 if($modx->event->name == 'OnWebPagePrerender' AND $enabled)
 {
-	require $modx->config['base_path'] . 'core/components/xhtmlbeautify/xhtmlbeautify.class.php';
+	require $modx->getOption('core_path') . 'components/xhtmlbeautify/xhtmlbeautify.class.php';
 	$xhtmlbeautify = new XhtmlBeautify($modx);
 	$output = $xhtmlbeautify->run();
 	unset($xhtmlbeautify);
