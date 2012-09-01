@@ -1,5 +1,9 @@
 Changelog for XHTML Beautify (MODx Revolution)
 
+1.0.3-beta
+===========
+- Fixed a fatal error occuring when using a non-standard core path
+
 1.0.2-beta
 ===========
 - Package renamed to xhtmlbeautify
