@@ -1,5 +1,9 @@
 Changelog for XHTML Beautify (MODx Revolution)
 
+1.0.4-beta
+===========
+- Fixed overwriting content output that caused a lot of snippet calls to fall over.
+
 1.0.3-beta
 ===========
 - Fixed a fatal error occuring when using a non-standard core path
