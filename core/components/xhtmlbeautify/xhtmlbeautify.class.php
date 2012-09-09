@@ -72,7 +72,7 @@ class XhtmlBeautify {
 
 			if(stripos($less, '<!DOCTYPE html') !== FALSE) {
 				$output = $this->_clean_output($resource->_output, $this->config);
-				$resource->_content = $resource->_output = $output;
+				$resource->_output = $output;
 			}
 		}
 	}
