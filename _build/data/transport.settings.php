@@ -23,6 +23,16 @@ $settings['setting_xhtmlbeautify.convert_quotes']->fromArray(array (
     'area' => 'output-cleaning',
 ), '', true, true);
 
+$settings['setting_xhtmlbeautify.caching']= $modx->newObject('modSystemSetting');
+$settings['setting_xhtmlbeautify.caching']->fromArray(array (
+    'key' => 'xhtmlbeautify.caching',
+    'description' => 'setting_xhtmlbeautify.caching_desc',
+    'value' => 0,
+    'xtype' => 'combo-boolean',
+    'namespace' => 'xhtmlbeautify',
+    'area' => 'output-cleaning',
+), '', true, true);
+
 $settings['setting_xhtmlbeautify.indent_output']= $modx->newObject('modSystemSetting');
 $settings['setting_xhtmlbeautify.indent_output']->fromArray(array (
     'key' => 'xhtmlbeautify.indent_output',

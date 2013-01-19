@@ -25,17 +25,14 @@
  *           Till Krüss <http://tillkruess.com/projects/wordpress/wp-beautifier/>
  */
 
-$modx->setLogLevel(modX::LOG_LEVEL_DEBUG);
-
-$enabled = $modx->getOption('xhtmlbeautify.enabled');
-
-if($modx->event->name == 'OnWebPagePrerender' AND $enabled)
-{
-	require $modx->getOption('core_path') . 'components/xhtmlbeautify/xhtmlbeautify.class.php';
-	$xhtmlbeautify = new XhtmlBeautify($modx, $scriptProperties);
-	$output = $xhtmlbeautify->run();
-	unset($xhtmlbeautify);
-	
-	return $output;
+if(class_exists('XhtmlBeautify') === FALSE) {
+	require_once $modx->getOption('core_path') . 'components/xhtmlbeautify/xhtmlbeautify.class.php';
+	$xhtmlbeautify = new XhtmlBeautify($modx, array_merge( array('document' => FALSE), $scriptProperties) );
 }
+else {
+	$scriptProperties['document'] = FALSE;
+	$xhtmlbeautify->config = array_merge($scriptProperties, $xhtmlbeautify->config);
+}
+
+return $xhtmlbeautify->run();
 

@@ -24,24 +24,39 @@
  * @author   Dan Gibbs <dan@goldcoastmedia.co.uk>
  *           Till Krüss <http://tillkruess.com/projects/wordpress/wp-beautifier/>
  */
- 
+
+// FIXME: Improve this madness
+if(class_exists('XhtmlBeautify') === TRUE) return NULL;
+
 class XhtmlBeautify {
 
 	protected $_modx;
 	protected $_namespace = 'xhtmlbeautify.';
 
 	public $config = array(
+		'caching'            => TRUE,
 		'convert_quotes'     => TRUE,
+		'document'           => TRUE,
 		'ignored_attributes' => 'onabort, onblur, onchange, onclick, ondblclick, onerror, onfocus, onkeydown, onkeypress, onkeyup, onload, onmousedown, onmousemove, onmouseout, onmouseover, onmouseup, onreset, onselect, onsubmit, onunload',
 		'ignored_tags'       => 'pre, script, textarea',
+		'indentlevel'        => 1,
 		'indent_output'      => TRUE,
 		'remove_comments'    => FALSE,
+		'source'             => NULL,
 	);
 
-	public function __construct(modX &$modx, $config = array())
+	// MODx caching options
+	public $cache_opts = array(
+		xPDO::OPT_CACHE_KEY => 'includes/elements/xhtmlbeautify',
+	);
+
+	public function __construct(modX &$modx, array &$config)
 	{
 		$this->_modx = $modx;
 		$modx_config = array();
+		
+		// Force all parameters to lowercase
+		$config = array_change_key_case($config, CASE_LOWER);
 
 		$settings = $this->_modx->newQuery('modSystemSetting')->where(array('key:LIKE' => $this->_namespace . '%'));
 		$settings = $this->_modx->getCollection('modSystemSetting', $settings);
@@ -52,29 +67,109 @@ class XhtmlBeautify {
 			$modx_config[$key] = $setting->get('value');
 		}
 
-		// Merge any user defined settings
-		$this->config = array_merge($modx_config, $config);
+		// Merge any user defined settings FIXME: Messy
+		$config = array_merge($modx_config, $config);
+		$this->config = array_merge($this->config, $config);
 	}
 
 	public function run()
 	{
 		$resource = $this->_modx->resource;
 		$content_type = $resource->get('contentType');
+		$output = NULL;
+		$cache = FALSE;
+		$document = $this->config['document'];
 
-		/**
-		 * The MODx document must have a text/html content type
-		 * and must also have a valid HTML DTD before processing
-		 * the source code output/
-		 */
-		if($content_type === 'text/html' OR $content_type === 'application/xhtml+xml') {
+		$source = ($this->config['source']) ? $this->config['source'] : $resource->_content;
+
+		// Document based caching
+		if($this->config['caching'] AND $this->config['document']) {
 			
-			$less = substr(trim($resource->_output), 0, 100);
-
-			if(stripos($less, '<!DOCTYPE html') !== FALSE) {
-				$output = $this->_clean_output($resource->_output, $this->config);
-				$resource->_output = $output;
+			if($cache = $this->_get_cache()) {
+				$resource->_content = $cache;
+			}
+			else {
+				$output = $this->beautify($source, $document, $content_type);
+				$this->_set_cache(NULL, $output);
+				
+				$resource->_content = $output;
 			}
 		}
+		else {
+			if($this->config['document']) {
+				// Use the entire document output when uncached
+				$output = $this->beautify($resource->_output, $document, $content_type);
+				$resource->_output = $output;
+			}
+			else {
+				$output = $this->beautify($source, $document, $content_type);
+				return $output;
+			}
+		}
+	}
+
+	/**
+	 * Filter source code
+	 */
+	public function beautify($source = NULL, $document = TRUE, $content_type = NULL)
+	{
+		$output = NULL;
+
+		$types = array(
+			'text/html',
+			'application/xhtml+xml',
+		);
+
+		// Full document
+		if($document) {
+			// Check if the content type is valid
+			$content_type = ( in_array($content_type, $types) ) ? TRUE : FALSE;
+			
+			$less = substr(trim($source), 0, 100);
+
+			if(stripos($less, '<!DOCTYPE html') !== FALSE) {
+				$output = $this->_clean_output($source, $this->config);
+			}
+		}
+		// HTML snippet
+		else {
+			$output = $this->_clean_output($source, $this->config);
+		}
+
+		return $output;
+	}
+
+	/**
+	 * Get cache
+	 *
+	 * @param   string  $name    cache name
+	 * @return  string|boolean   processed source or FALSE
+	 */
+	protected function _get_cache($name = NULL)
+	{
+		$cachename = ( !empty($name) ) ? $name: $this->_modx->resource->get('id');
+	
+		if($cached = $this->_modx->cacheManager->get($cachename, $this->cache_opts) AND $cached !== NULL) {
+			return $cached;
+		}
+		else {
+			return FALSE;
+		}
+	}
+
+	/**
+	 * Set cache
+	 *
+	 * @param   string  $name    cache name
+	 * @param   array   $source  source code
+	 * @return  string           processed source
+	 */
+	protected function _set_cache($name = NULL, $source = NULL)
+	{
+		$cachename = ( !empty($name) ) ? $name: $this->_modx->resource->get('id');
+		$this->_modx->cacheManager->set($cachename, $source, 0, $this->cache_opts);
+		
+		return $this->_get_cache();
 	}
 
 	/**
@@ -108,7 +203,7 @@ class XhtmlBeautify {
 
 		if( (bool) $config['indent_output'] === TRUE) {
 			$source = $this->_clean_whitespace($source);
-			$source = $this->_add_indentation($source);
+			$source = $this->_add_indentation($source, $this->config['indentlevel']);
 		}
 
 		preg_match_all($ignored_tags_regexp, $source, $modified_tags);
@@ -161,7 +256,7 @@ class XhtmlBeautify {
 	 * @param   int     $indent  a positive level to start indentation at
 	 * @return  string           processed source
 	 */
-	protected function _add_indentation($source = NULL, $indent = 0)
+	protected function _add_indentation($source = NULL, $indent = 1)
 	{
 		$source = explode("\n", $source);
 
@@ -231,6 +326,6 @@ class XhtmlBeautify {
 	 */
 	protected function _remove_comments($source = NULL)
 	{
-		return preg_replace('/<!--(?![\s]?\[if)(.|\s)*?-->/i', '', $source);
+		return preg_replace('/<!--(?!\s*(?:\[if [^\]]+]|<!|>))(?:(?!-->).)*-->/i', '', $source);
 	}
 }

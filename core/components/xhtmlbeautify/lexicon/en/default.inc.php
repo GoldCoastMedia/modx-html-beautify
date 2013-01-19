@@ -36,6 +36,10 @@ $_lang['setting_xhtmlbeautify.enabled'] = 'Enabled';
 $_lang['setting_xhtmlbeautify.enabled_desc'] = 'Enable/Disable the plugin from
 taking effect.';
 
+$_lang['setting_xhtmlbeautify.caching'] = 'Caching';
+$_lang['setting_xhtmlbeautify.caching_desc'] = 'Enable/Disable the plugin from
+using MODx caching for beautified output.';
+
 $_lang['setting_xhtmlbeautify.remove_empty_lines'] = 'Remove Empty Lines';
 $_lang['setting_xhtmlbeautify.remove_empty_lines_desc'] = 'Remove empty lines 
 from the source code.';

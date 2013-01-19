@@ -35,7 +35,7 @@
 /* Set package info be sure to set all of these */
 define('PKG_NAME','XHTML Beautify');
 define('PKG_NAME_LOWER','xhtmlbeautify');
-define('PKG_VERSION','1.0.4');
+define('PKG_VERSION','1.0.5');
 define('PKG_RELEASE','beta');
 define('PKG_CATEGORY','XHTML Beautify');
 
@@ -44,7 +44,7 @@ define('PKG_CATEGORY','XHTML Beautify');
  * */
 $hasAssets = FALSE; /* Transfer the files in the assets dir. */
 $hasCore = TRUE;   /* Transfer the files in the core dir. */
-$hasSnippets = FALSE;
+$hasSnippets = TRUE;
 $hasChunks = FALSE;
 $hasTemplates = FALSE;
 $hasResources = FALSE;

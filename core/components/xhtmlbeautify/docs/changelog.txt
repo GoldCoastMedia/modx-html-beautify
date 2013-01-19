@@ -1,5 +1,11 @@
 Changelog for XHTML Beautify (MODx Revolution)
 
+1.0.5-beta
+===========
+- Added caching to beautified source for speed improvements. Do not enable to beautify entire pages. Experimental.
+- Improved regex to avoid conditional statements getting removed when HTML comment removal is enabled
+- Added a basic snippet that allows (X)HTML to be beautified inline. Currently only works on HTML (and not chunks etc). Experimental.
+
 1.0.4-beta
 ===========
 - Fixed overwriting content output that caused a lot of snippet calls to fall over.
