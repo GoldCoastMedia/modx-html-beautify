@@ -22,18 +22,19 @@
  *
  * @package  xhtmlbeautify
  * @author   Dan Gibbs <dan@goldcoastmedia.co.uk>
- *           Till Krüss <http://tillkruess.com/projects/wordpress/wp-beautifier/>
  */
 
-$modx->setLogLevel(modX::LOG_LEVEL_DEBUG);
-
+//$modx->setLogLevel(modX::LOG_LEVEL_DEBUG);
 $enabled = $modx->getOption('xhtmlbeautify.enabled');
 
 if($modx->event->name == 'OnWebPagePrerender' AND $enabled)
 {
+	require $modx->getOption('core_path') . 'components/xhtmlbeautify/vendor/htmLawed.php';
 	require $modx->getOption('core_path') . 'components/xhtmlbeautify/xhtmlbeautify.class.php';
+	
 	$xhtmlbeautify = new XhtmlBeautify($modx, $scriptProperties);
 	$output = $xhtmlbeautify->run();
+	
 	unset($xhtmlbeautify);
 	
 	return $output;

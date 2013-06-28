@@ -26,6 +26,7 @@
  */
 
 if(class_exists('XhtmlBeautify') === FALSE) {
+	require_once $modx->getOption('core_path') . 'components/xhtmlbeautify/vendor/htmLawed.php';
 	require_once $modx->getOption('core_path') . 'components/xhtmlbeautify/xhtmlbeautify.class.php';
 	$xhtmlbeautify = new XhtmlBeautify($modx, array_merge( array('document' => FALSE), $scriptProperties) );
 }

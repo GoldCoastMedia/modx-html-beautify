@@ -1,23 +1,26 @@
-XHTML Beautify
+(X)HTML Beautify
 ==============
-Version: 1.0.5-beta (2013-01-19)
+Version: 2.0.0-alpha (2013-06-28)
 Authors: Dan Gibbs <dan@goldcoastmedia.co.uk>
-         Till Krüss <http://tillkruess.com/projects/wordpress/wp-beautifier/>
 
-Clean up XHTML source code output.
+Clean up (X)HTML source code output.
 
-* Strip unnecessary whitespace, new lines and trailing whitespace
-* Format (indent) the (X)HTML source code output
-* Remove all HTML comments
-* Convert single quoted tag attributes values into uniform double quoted values
+* Beautify your source code with configurable tabs and spaces
+* Optionally control your HTML output by forcing valid XHTML, unique ID's
+* Optionally disable certain elements, manipulate HTML comments, insert base/absolute URLs
+* Much more. Now works with HTML5
 
-Based on the WP Beautifier plugin for Wordpress by Till Krüss.
+Utilises hmtLawed by Santosh Patnaik. Originally based on the WP Beautifier plugin 
+for Wordpress by Till Krüss.
 
 Git repo: https://github.com/GoldCoastMedia/modx-html-beautify
 
 Documentation
 -------------
 Full detailed documentation available at: 
-http://www.goldcoastmedia.co.uk/tools/modx-xhtml-beautify/
+http://www.goldcoastmedia.co.uk/tools/modx/xhtml-beautify/
+
+htmLawed documentation available at:
+http://www.bioinformatics.org/phplabware/internal_utilities/htmLawed/htmLawed_README.htm
 
 Gold Coast Media

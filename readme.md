@@ -1,17 +1,16 @@
-XHTML Beautify for MODx Revolution
+(X)HTML Beautify for MODx Revolution
 =========================================
 Authors:
 - Dan Gibbs, Gold Coast Media Ltd
-- Till Krüss, http://tillkruess.com/projects/wordpress/wp-beautifier/
 
-Configurable MODx plugin that cleans up XHTML source code output.
+Configurable MODx plugin that cleans up (X)HTML source code output.
 
-- Strip unnecessary whitespace, new lines and trailing whitespace
-- Format (indent) the (X)HTML source code output
-- Remove all HTML comments
-- Convert single quoted tag attributes values into uniform double quoted values
+- Beautify your source code with configurable tabs and spaces
+- Optionally control your HTML output by forcing valid XHTML, unique ID's
+- Optionally disable certain elements, manipulate HTML comments, insert base/absolute URLs
+- Much more. Now works with HTML5
 
-*Based on the WP Beautifier plugin for Wordpress by Till Krüss.*
+**Utilises hmtLawed by Santosh Patnaik. Originally based on the WP Beautifier plugin for Wordpress by Till Krüss.**
 
 Installation
 -----------
@@ -20,4 +19,4 @@ Install via MODx package manager and change settings via Settings > System Setti
 Documentation
 ------------
 Full detailed documentation available at:
-http://www.goldcoastmedia.co.uk/tools/modx-xhtml-beautify/
+http://www.goldcoastmedia.co.uk/tools/modx/xhtml-beautify/

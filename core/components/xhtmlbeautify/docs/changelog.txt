@@ -1,4 +1,8 @@
-Changelog for XHTML Beautify (MODx Revolution)
+Changelog for (X)HTML Beautify (MODx Revolution)
+
+2.0.0-alpha
+===========
+- Added htmLawed for experimentation
 
 1.0.5-beta
 ===========

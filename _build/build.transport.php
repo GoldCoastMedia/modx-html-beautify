@@ -32,11 +32,14 @@
  * @subpackage build
  */
 
+ini_set('display_errors', 'on');
+error_reporting(E_ALL);
+
 /* Set package info be sure to set all of these */
 define('PKG_NAME','XHTML Beautify');
 define('PKG_NAME_LOWER','xhtmlbeautify');
-define('PKG_VERSION','1.0.5');
-define('PKG_RELEASE','beta');
+define('PKG_VERSION','2.0');
+define('PKG_RELEASE','alpha');
 define('PKG_CATEGORY','XHTML Beautify');
 
 /* Set package options - you can turn these on one-by-one
