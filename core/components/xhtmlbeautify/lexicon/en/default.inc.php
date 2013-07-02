@@ -168,7 +168,7 @@ attributes or transform them<br /><br />
 2 = transform
 ";
 
-$_lang['setting_xhtmlbeautify.safe'] = 'Sage';
+$_lang['setting_xhtmlbeautify.safe'] = 'Safe';
 $_lang['setting_xhtmlbeautify.safe_desc'] = "Magic parameter to make input 
 the most secure against XSS<br /><br />
 0 = no (default)<br />

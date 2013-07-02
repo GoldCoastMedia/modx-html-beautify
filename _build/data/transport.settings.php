@@ -117,7 +117,7 @@ $settings['setting_xhtmlbeautify.deny_attribute']= $modx->newObject('modSystemSe
 $settings['setting_xhtmlbeautify.deny_attribute']->fromArray(array (
     'key'         => 'xhtmlbeautify.deny_attribute',
     'description' => 'setting_xhtmlbeautify.deny_attribute_desc',
-    'value'       => 1,
+    'value'       => 0,
     'xtype'       => 'textfield',
     'namespace'   => 'xhtmlbeautify',
     'area'        => 'output-cleaning',
@@ -137,7 +137,7 @@ $settings['setting_xhtmlbeautify.elements']= $modx->newObject('modSystemSetting'
 $settings['setting_xhtmlbeautify.elements']->fromArray(array (
     'key'         => 'xhtmlbeautify.elements',
     'description' => 'setting_xhtmlbeautify.elements_desc',
-    'value'       => '*',
+    'value'       => '',
     'xtype'       => 'textarea',
     'namespace'   => 'xhtmlbeautify',
     'area'        => 'output-cleaning',
@@ -180,7 +180,7 @@ $settings['setting_xhtmlbeautify.keep_bad']= $modx->newObject('modSystemSetting'
 $settings['setting_xhtmlbeautify.keep_bad']->fromArray(array (
     'key'         => 'xhtmlbeautify.keep_bad',
     'description' => 'setting_xhtmlbeautify.keep_bad_desc',
-    'value'       => 6,
+    'value'       => -1,
     'xtype'       => 'textfield',
     'namespace'   => 'xhtmlbeautify',
     'area'        => 'output-cleaning',
@@ -190,7 +190,7 @@ $settings['setting_xhtmlbeautify.lc_std_val']= $modx->newObject('modSystemSettin
 $settings['setting_xhtmlbeautify.lc_std_val']->fromArray(array (
     'key'         => 'xhtmlbeautify.lc_std_val',
     'description' => 'setting_xhtmlbeautify.lc_std_val_desc',
-    'value'       => 1,
+    'value'       => 0,
     'xtype'       => 'combo-boolean',
     'namespace'   => 'xhtmlbeautify',
     'area'        => 'output-cleaning',
@@ -210,7 +210,7 @@ $settings['setting_xhtmlbeautify.named_entity']= $modx->newObject('modSystemSett
 $settings['setting_xhtmlbeautify.named_entity']->fromArray(array (
     'key'         => 'xhtmlbeautify.named_entity',
     'description' => 'setting_xhtmlbeautify.named_entity_desc',
-    'value'       => 1,
+    'value'       => 0,
     'xtype'       => 'textfield',
     'namespace'   => 'xhtmlbeautify',
     'area'        => 'output-cleaning',
@@ -220,7 +220,7 @@ $settings['setting_xhtmlbeautify.no_deprecated_attr']= $modx->newObject('modSyst
 $settings['setting_xhtmlbeautify.no_deprecated_attr']->fromArray(array (
     'key'         => 'xhtmlbeautify.no_deprecated_attr',
     'description' => 'setting_xhtmlbeautify.no_deprecated_attr_desc',
-    'value'       => 0,
+    'value'       => 1,
     'xtype'       => 'textfield',
     'namespace'   => 'xhtmlbeautify',
     'area'        => 'output-cleaning',
