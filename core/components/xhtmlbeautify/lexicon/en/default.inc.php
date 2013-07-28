@@ -175,6 +175,10 @@ the most secure against XSS<br /><br />
 1 = will auto-adjust other relevant parameters
 ";
 
+$_lang['setting_xhtmlbeautify.schemes'] = 'Schemes';
+$_lang['setting_xhtmlbeautify.schemes_desc'] = "Array of attribute-specific, comma-separated, lower-cased list of schemes (protocols) allowed in attributes accepting URLs (or ! to deny any URL)
+";
+
 $_lang['setting_xhtmlbeautify.style_pass'] = 'Style Pass';
 $_lang['setting_xhtmlbeautify.style_pass_desc'] = "Do not look at style 
 attribute values, letting them through without any alteration<br /><br />

@@ -236,17 +236,18 @@ $settings['setting_xhtmlbeautify.safe']->fromArray(array (
     'area'        => 'output-cleaning',
 ), '', TRUE, TRUE);
 
-/*
+
 $settings['setting_xhtmlbeautify.schemes']= $modx->newObject('modSystemSetting');
 $settings['setting_xhtmlbeautify.schemes']->fromArray(array (
     'key'         => 'xhtmlbeautify.schemes',
     'description' => 'setting_xhtmlbeautify.schemes',
-    'value'       => NULL,
+    'value'       => '*:*',
     'xtype'       => 'textarea',
     'namespace'   => 'xhtmlbeautify',
     'area'        => 'output-cleaning',
 ), '', TRUE, TRUE);
 
+/*
 $settings['setting_xhtmlbeautify.show_setting']= $modx->newObject('modSystemSetting');
 $settings['setting_xhtmlbeautify.show_setting']->fromArray(array (
     'key'         => 'xhtmlbeautify.show_setting',

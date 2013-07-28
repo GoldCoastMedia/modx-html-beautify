@@ -25,15 +25,13 @@
  *           Till Krüss <http://tillkruess.com/projects/wordpress/wp-beautifier/>
  */
 
-if(class_exists('XhtmlBeautify') === FALSE) {
-	require_once $modx->getOption('core_path') . 'components/xhtmlbeautify/vendor/htmLawed.php';
-	require_once $modx->getOption('core_path') . 'components/xhtmlbeautify/xhtmlbeautify.class.php';
-	$xhtmlbeautify = new XhtmlBeautify($modx, array_merge( array('document' => FALSE), $scriptProperties) );
-}
-else {
-	$scriptProperties['document'] = FALSE;
-	$xhtmlbeautify->config = array_merge($scriptProperties, $xhtmlbeautify->config);
-}
+if(function_exists('htmLawed') !== TRUE)
+	require $modx->getOption('core_path') . 'components/xhtmlbeautify/vendor/htmLawed.php';
+		
+if(class_exists('XhtmlBeautify') !== TRUE)
+	require $modx->getOption('core_path') . 'components/xhtmlbeautify/xhtmlbeautify.class.php';
+	
+$xhtmlbeautify = new XhtmlBeautify($modx, array_merge( array('document' => FALSE), $scriptProperties) );
 
 return $xhtmlbeautify->run();
 

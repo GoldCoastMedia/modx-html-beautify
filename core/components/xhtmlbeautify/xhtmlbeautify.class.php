@@ -55,7 +55,7 @@ class XhtmlBeautify {
 		'named_entity' => 1,
 		'no_deprecated_attr' => 0, // 1
 		'safe' => 0,
-		//'schemes' => '', // Array
+		'schemes' => '*:*', // Array
 		//'show_setting' => FALSE,
 		'style_pass' => 0,
 		'tidy' => '1t0n', //

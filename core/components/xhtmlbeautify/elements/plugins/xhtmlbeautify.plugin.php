@@ -24,13 +24,16 @@
  * @author   Dan Gibbs <dan@goldcoastmedia.co.uk>
  */
 
-//$modx->setLogLevel(modX::LOG_LEVEL_DEBUG);
+$modx->setLogLevel(modX::LOG_LEVEL_DEBUG);
 $enabled = $modx->getOption('xhtmlbeautify.enabled');
 
 if($modx->event->name == 'OnWebPagePrerender' AND $enabled)
 {
-	require $modx->getOption('core_path') . 'components/xhtmlbeautify/vendor/htmLawed.php';
-	require $modx->getOption('core_path') . 'components/xhtmlbeautify/xhtmlbeautify.class.php';
+	if(function_exists('htmLawed') !== TRUE)
+		require $modx->getOption('core_path') . 'components/xhtmlbeautify/vendor/htmLawed.php';
+		
+	if(class_exists('XhtmlBeautify') !== TRUE)
+		require $modx->getOption('core_path') . 'components/xhtmlbeautify/xhtmlbeautify.class.php';
 	
 	$xhtmlbeautify = new XhtmlBeautify($modx, $scriptProperties);
 	$output = $xhtmlbeautify->run();
