@@ -26,7 +26,7 @@
  */
 
 if(function_exists('htmLawed') !== TRUE)
-	require $modx->getOption('core_path') . 'components/xhtmlbeautify/vendor/htmLawed.php';
+	require $modx->getOption('core_path') . 'components/xhtmlbeautify/vendor/htmlawed/htmLawed.php';
 		
 if(class_exists('XhtmlBeautify') !== TRUE)
 	require $modx->getOption('core_path') . 'components/xhtmlbeautify/xhtmlbeautify.class.php';

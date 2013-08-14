@@ -1,4 +1,4 @@
-Changelog for (X)HTML Beautify (MODx Revolution)
+Changelog for (X)HTML Beautify (MODX Revolution)
 
 2.0.0-alpha
 ===========

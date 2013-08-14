@@ -1,9 +1,9 @@
-(X)HTML Beautify for MODx Revolution
+(X)HTML Beautify for MODX Revolution
 =========================================
 Authors:
 - Dan Gibbs, Gold Coast Media Ltd
 
-Configurable MODx plugin that cleans up (X)HTML source code output.
+Configurable MODX plugin that cleans up (X)HTML source code output.
 
 - Beautify your source code with configurable tabs and spaces
 - Optionally control your HTML output by forcing valid XHTML, unique ID's
@@ -14,7 +14,7 @@ Configurable MODx plugin that cleans up (X)HTML source code output.
 
 Installation
 -----------
-Install via MODx package manager and change settings via Settings > System Settings.
+Install via MODX package manager and change settings via Settings > System Settings.
 
 Documentation
 ------------
